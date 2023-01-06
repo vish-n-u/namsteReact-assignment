@@ -1,0 +1,77 @@
+Q1. What is Emmet?
+* ans:- Emmet is a boilerplate code used to start a basic html project. Basically it has
+all the metadata needed to start a simple html project.
+
+Q2. Difference between a Library and Framework?
+ans :- FrameWork can be though of as a blueprint  based on which you build your house is built.
+Library is more like a furniture which you can place anywhere in your house as is required.
+#FRAMEWORK
+a). Provides ready to use standards , tools, templates for fast app development
+b). Intent of a Framework is to reduce complexities of creating an app.
+
+#LIBRARY
+a). Provides lines of codes written by someone else to solve some existing problem.
+b).Intent of Library is to provide reusable code.
+
+Inversion of control:-
+
+With Framework the control to calling libraries is given to the framwork you are using, 
+With libraries you have the complete control over when and where to use it
+ 
+
+Q3. What is CDN? Why do we use it?
+ans :- CDN stands for Content Delivery Network , these are geographically spread 
+networks used for making content delivery Faster by storing your frontend data in a
+server closer to your users geographical location 
+Though it may seem like a normal web host , it is not!
+While a CDN does not host content and can’t replace the need for proper web hosting, 
+it does help cache content at the network edge, which improves website performance.
+Many websites struggle to have their performance needs met by traditional hosting
+services, which is why they opt for CDNs.
+
+
+Q4). Why is React known as React?
+ans :- React is a free and open source library developed by facebook , which is used to
+make UI based on UI components.
+React is known as react because of its ability to re-render itself when there 
+is a change in its components.
+
+
+Q5). What is crossorigin in script tag?
+ans :- crossorigin is a security feature in html, an html page can 
+have muliple resources from many different sources , with crossorigin attribute
+you have the ability to either give or not give information about the user to 
+these third party websites.
+You can either set it as anonymous (no info is given) or
+use-credentials(info is givrn)
+
+  
+Q6).  What is diference between React and ReactDOM?
+ans :- React consist of all the libraries modules and methods required to build 
+the application
+ReactDOM is used rendering the UI to the browser
+
+
+Q7). What is difference between react.development.js and 
+react.production.js files via CDN?
+ans :- react.development.js file is used during the development stage
+of an application,
+react.production.js files are more minified & optimized file needed
+during the production stage of an application
+
+
+Q8). What is async and defer? - see my Youtube video ;)
+ans :- async and defer are both used in the script tag for fetching data parallely
+and hence both make html parsing faster.
+#async
+When the browser encounters a script tag it parallely fetches it(url of script tag)
+,while continuing the execution of html file and as soon as the script tag is fetched
+the browser stops html parsing and starts executing the script tag,
+though this increases the speed of parsing the problem it encounters is that if 
+there are multiple script tags which depend on other script tags , then sequential 
+execution is necessary but ASYNC does not ensure that the script tags would be 
+executed sequentially.
+#defer 
+all the script tags are fetched parallely but the execution happens only after the
+whole html file is parsed , this ensures that the script tags are also executed
+sequentially
