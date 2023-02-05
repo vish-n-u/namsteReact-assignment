@@ -1,0 +1,21 @@
+{
+  "name": "assignmentreact",
+  "version": "1.0.0",
+  "description": "Assignment 2",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.7.1",
+    "react-router-dom": "^6.8.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.8.2",
+    "process": "^0.11.10",
+    "react-dom-visualizer": "^1.0.0"
+  }
+}
