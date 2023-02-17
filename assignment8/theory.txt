@@ -1,0 +1,146 @@
+Q1) How do you create nested Routes React-Router-Dom?
+ans) Nested Routes are used to keep some part of the old page when a new page is render,
+usually its used to keep the header and footer same while only body is changed.
+you write it as 
+
+const AppLayout = () = >{
+    return(
+        <>
+        <Header />,<reactrouterDom.Outlet /> , <Footer />
+        </>
+    )
+}
+let Routes = reactrouterDom.createBrowserRoute([{
+    path:"/",
+    element:<AppLayout />
+    children:[{
+        path:"/",
+        element:<Body />
+
+    },{
+        path:"/About",
+        element:"<About />"
+
+    }
+]
+}])
+
+in this case the objects inside children are nested Routes and 
+reactrouterDom.Outer is a placeholder which gets updated each time the nested path changes
+
+    
+Q2) What is order of lifeCycle method calss in class Based Components
+ans) There are 2 phases of lifeCycle methods 
+“Render phase”
+Pure and has no side effects. May be paused, aborted or restarted by React.
+
+“Pre-commit phase” (part of render phase)
+Can read the DOM.
+
+“Commit phase”
+Can work with DOM, run side effects, schedule updates.
+ 
+
+-render
+    - setting state
+    -  render method
+    - constructor
+-commit
+    - componentDidMount
+    - componentDidUpdate
+    - componentDidUnmount
+
+
+This can also be categorized in three methods
+    Mounting
+    Updating
+    Unmounting
+
+Mounting phase:-
+A component “mounts” when it renders for the first time. When a component mounts, it 
+automatically calls these three methods, in the order of:
+
+constructor()
+render()
+componentDidUpdate()
+
+React supports three mounting lifecycle methods for component classes: 
+componentWillMount(), render(), and componentDidMount().
+componentWillMount() will be called first followed by the render() method and finally 
+the componentDidMount() method will be called after the initital render.
+
+
+The next phase in the lifecycle is when a component is updated.
+
+A component is updated whenever there is a change in the component's state or props.
+
+React has five built-in methods that gets called, in this order, when a component is updated:
+
+getDerivedStateFromProps()
+shouldComponentUpdate()
+render()
+getSnapshotBeforeUpdate()
+componentDidUpdate()
+The render() method is required and will always be called, the others are optional
+ and will be called if you define them.
+
+Updating Lifecycle Method
+When a component updates, shouldComponentUpdate() gets called after 
+componentWillReceiveProps(), but still before the rendering begins. It automatically 
+receives two arguments: nextProps and nextState.
+
+shouldComponentUpdate() should return either true or false. The best way to use this 
+method is to have it return false only under certain conditions. If those conditions are 
+met, then your component will not update.
+
+
+
+The next phase in the lifecycle is when a component is removed from the DOM, or unmounting as
+React likes to call it.
+
+React has only one built-in method that gets called when a component is unmounted:
+
+componentWillUnmount()
+
+componentWillUnmount
+The componentWillUnmount method is called when the component is about to be removed 
+from the DOM.
+
+
+Q) Why do we use componentDidMount?
+ans) Component componentDidMount is equivalent to useEffect(()=>//code,[]), 
+componentDidMount will be called after the initial render, its best used to make an api 
+call or any other side effects, if there is a state change react re-renders the whole 
+component , and updates the DOM with new values.
+
+Q) Why do we use componentWillUnmount 
+componentWillUnmount is used to remove any components action that might be going on even 
+after the component has been removed from the DOM.
+example:- lets say we have a setInterval function in our component , it will continue to 
+execute itself even after we have left the page (unmounted the component , this happens
+because of how js works with setIntervals) , unhandled events like these will cause a lot 
+of memory leaks in our application, hence a clearInterval in our componentWillUnmount function
+is the best way to resolve this.
+
+
+The componentWillUnmount() method allows us to execute the React code when the component 
+gets destroyed or unmounted from the DOM (Document Object Model). This method is called 
+during the Unmounting phase of the React Life-cycle i.e before the component gets 
+unmounted.
+
+All the cleanups such as invalidating timers, canceling network requests, or cleaning up 
+any subscriptions that were created in componentDidMount() should be coded in the 
+componentWillUnmount() method block.
+
+
+Q) Why we use super(props) in our class's constructor?
+ans) Super is a js class's functionality, it has nothing to do with react!
+when we write class Profile extends React.component
+what it means is that Profile class is using functionalitites and methods of React.component
+and the Super keyword is a way of providing some data/props to the React.component function(functions can imitate class),
+This is why we use Super(props)
+
+Q) Why cant we call CallBack function of useEffect async?
+You can write async in useEffect's callback function, but the problem with this is 
+useEffect expects a cleanup function (similar to componentWillUnmount) and to make
+this happen we use a return () =>{ //do cleanup} but an async function 

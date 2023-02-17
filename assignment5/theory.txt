@@ -1,0 +1,63 @@
+Q1) What is the difference between named export , export default , and * as export 
+ans.) Every module can have two different types of export, named export and default export.
+You can have multiple named exports per module but only one default export. Each type 
+corresponds to one of the below syntax
+
+Named export:- example:-
+                export const data = //....//
+(importing named export) object  = import {data} from "filelocation"(relative from its being imported)
+react hooks are all named export
+Export declarations are not subject to temporal dead zone rules. 
+You can declare that the module exports data before the name data itself is declared.
+export { data };
+const data = 1;
+// This works, because `export` is only a declaration, but doesn't
+// utilize the value of `data`.
+
+
+default export:- example:-
+                export default data (data could be variable , function , Class ,etc)
+(importing default export) object = import data from "filelocation" (relative from where its being imported)
+react and react-dom are default export
+
+The export default syntax allows any expression.
+export default 1 + 1;
+Named exports are useful when you need to export several values. When importing 
+ named exports, they must be referred to by the exact same name 
+(optionally renaming it with as), but the default export can be imported with any name. 
+For example:
+export default k - fileK.js
+("some other file")
+import m from fileK.js (//works perfectly fine)
+
+
+Q2) What is use of config.js file?
+Config files help in maintaining, organizing and increases readibility of code, separating
+business logic from other stuff.
+for example a url doesnot really need to be in the business logic , they are usually long ,
+if you store it in the config file and import it, it looks cleaner.
+Configuration files ("config files" for short) are important to modern computing. 
+They allow you to customize how you interact with an application or how an application 
+interacts with the rest of your system. It's thanks to config files that any time you 
+launch an application, it has "memories" of how you like to use it.
+Configuration files can be, and often are, very simple in structure.
+
+
+Q3) What are React Hooks?
+React Hooks are simple JavaScript functions that we can use to isolate the reusable part 
+from a functional component. Hooks can be stateful and can manage side-effects.
+So, we can now isolate all the stateful logic in hooks and use 
+(compose them, as hooks are functions, too) into the components.
+Hooks are special functions that are only available while React is rendering .
+They let you “hook into” different React features.
+
+Q4) Why do we use state hooks?
+The need for state hooks is , Normally, variables “disappear” when the function 
+exits but state variables are preserved by React.
+Local variables don’t persist between renders. When React renders a component
+component a second time, it renders it from scratch—it doesn’t consider any changes to 
+the local variables.
+Changes to local variables won’t trigger renders. 
+React doesn’t realize it needs to render the component again with the new data.
+To solve these problems react introduces state variables which can preserve its values
+across render and also each time the state updates , react re-renders that component

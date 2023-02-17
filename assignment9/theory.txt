@@ -1,0 +1,6 @@
+Q1) What is Lazy() When and Why Do we Need?
+Ans) Parcel creates a dist folder that contains all the code of your react project 
+and sends that to the browser, which the browse reads and paints the DOM with, But this
+takes a lot of time , suppose there are loosely coupled features in the app, and you don't 
+necessarily need them to be loaded unless there is a need for them to be loaded because
+there might be performance issue
